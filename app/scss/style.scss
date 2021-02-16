@@ -1,0 +1,253 @@
+// === Mixin ===
+@mixin roboto {
+    font-family: 'Roboto', sans-serif;
+}
+@mixin quicksand {
+    font-family: 'Quicksand', sans-serif;
+}
+// === / Mixin ===
+
+
+// === Variables ===
+$base: 4px;
+
+$fs-sm: 12px;
+$fs-md: 15px;
+
+$fw-bold: 700;
+$fw-medium: 500;
+$fw-regular: 400;
+
+$padding-vertical: $base * 30;
+$padding-vertical-sm: $base * 15;
+$padding-vertical-xs: $base * 5;
+
+$color-devider: #D8E3FE;
+$color-primary: #697CA6;
+$color-secondary: #6188FF;
+
+$transition: .2s;
+// === / Variables ===
+
+
+// === Common ===
+body {
+    @include roboto;
+}
+.wrapper-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: $padding-vertical;
+    padding-bottom: $padding-vertical;
+
+    &--wide {
+        max-width: 1200px;
+    }
+}
+.wrapper-outer {
+    border-bottom: 1px solid $color-devider;
+}
+// === / Common ===
+
+
+// === HEADER ===
+.section-header {
+    .wrapper-inner {
+        padding-top: $padding-vertical-xs;
+        padding-bottom: $padding-vertical-xs;
+    }
+}
+
+.main-navigation {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: $base *6;
+    height: $base *6;
+    background-color: #5E81FE;
+    border-radius: 100%;
+}
+
+.nav {
+    margin-left: $base * 18;
+}
+
+.nav-list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &__item {
+        & + & {
+            margin-left: $base * 10;
+        }
+
+        &-link {
+            @include quicksand;
+
+            font-size: $fs-sm;
+            color: $color-primary;
+            text-decoration: none;
+            font-weight: $fw-medium;
+            transition: $transition;
+
+            &:hover {
+                color: $color-secondary;
+            }
+
+            &--active {
+                font-weight: $fw-bold;
+                color: $color-secondary;
+            }
+        }
+    }
+}
+
+.socials {
+    margin-left: auto;
+}
+
+.socials-list {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &__item {
+        & + & {
+            margin-left: $base * 9;
+        }
+
+        &-link {
+            path {
+                fill: $color-primary;
+                transition: $transition;
+
+                
+            }
+
+            &:hover {
+                path {
+                    fill: $color-secondary;
+                }
+            }
+        }
+    }
+}
+
+.btn {
+    margin-left: $base * 11;
+}
+
+.btn-link {
+    @include quicksand;
+
+    font-size: $fs-sm;
+    font-weight: $fw-bold;
+    margin: 0;
+    padding: $base * 3 $base * 4;
+    text-decoration: none;
+    background-color: none;
+    border: 0;
+    border-radius: 2px;
+    transition: $transition;
+
+    &--primary {
+        color: #3A79FF;
+        background-color: #D2E1FF;
+        &:hover {
+            background-color: darken(#D2E1FF, 5%);
+        }
+    }
+}
+// === / HEADER ===
+
+// === HERO ===
+.section-hero {
+    background-color: #F4F7FF;
+}
+// === / HERO ===
+
+// === CUSTOMERS ===
+.section-customers {
+    .wrapper-inner {
+        padding-top: $padding-vertical-sm;
+        padding-bottom: $padding-vertical-sm;
+    }
+}
+// === / CUSTOMERS ===
+
+// === PLAN ===
+.section-plan {
+    background-color: #F5F8FF;
+}
+// === / PLAN ===
+
+// === FEATURES ===
+
+// === / FEATURES ===
+
+// === STATS ===
+.section-stats {
+    background-color: #E9EFFF;
+    
+    .wrapper-inner {
+        padding-top: $padding-vertical-sm;
+        padding-bottom: $padding-vertical-sm;
+    }
+}
+// === / STATS ===
+
+// === BLOG ===
+.section-blog {
+    background-color: #F5F8FF;
+}
+// === / BLOG ===
+
+// === QUOTES ===
+.section-quotes {
+    background-color: #EAF0FF;
+}
+// === / QUOTES ===
+
+// === FAQ ===
+
+// === / FAQ ===
+
+// === STARTED ===
+.section-started {
+    background-color: #6888FF;
+}
+// === / STARTED ===
+
+// === NEWSLETTER ===
+.section-newsletter {
+    background-color: #FCFDFF;
+}
+// === / NEWSLETTER ===
+
+// === FOOTER ===
+.section-footer {
+    border-bottom: none;
+
+    .wrapper-inner {
+        padding-top: $padding-vertical-sm;
+        padding-bottom: $padding-vertical-sm;
+    }
+}
+
+.copyright {
+    @include quicksand;
+
+    font-size: $fs-sm;
+    font-weight: $fw-medium;
+    color: #AEB8D0;
+    margin-top: $base * 7;
+    margin-left: $base * 24;
+
+}
+// === / FOOTER ===
