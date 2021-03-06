@@ -13,6 +13,8 @@ $base: 4px;
 
 $fs-sm: 12px;
 $fs-md: 15px;
+$fs-lg: 18px;
+$fs-xl: 48px;
 
 $fw-bold: 700;
 $fw-medium: 500;
@@ -36,6 +38,7 @@ body {
     @include roboto;
 
     color: #8D96BD;
+    overflow-x:hidden;
 }
 
 .wrapper-inner {
@@ -102,6 +105,61 @@ h5 {
         &--active {
             background-color: #5283FF;
         }
+    }
+}
+
+.btn-link {
+    @include quicksand;
+
+    font-size: $fs-sm;
+    font-weight: $fw-bold;
+    margin: 0;
+    padding: $base * 3 $base * 4;
+    text-decoration: none;
+    background-color: none;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    transition: $transition;
+
+    &--primary {
+        color: #3A79FF;
+        background-color: #D2E1FF;
+        &:hover {
+            background-color: darken(#D2E1FF, 5%);
+        }
+    }
+
+    &--secondary {
+        color: #fff;
+        background-color: #4C85FF;
+    }
+
+    &--no-bg {
+        color: #ADB4D2;
+        background-color: none;
+        border: 1px solid #ADB4D2;
+    }
+
+    &--danger {
+         color: #D43F3F;
+         background-color: #FFD7D7;
+         &:hover {
+            background-color: darken(#FFD7D7, 5%);
+        }
+    }
+}
+
+.btn-group {
+    display: inline-flex;
+
+    .btn-link:nth-child(1) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .btn-link:nth-child(2) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
     }
 }
 // === / Common ===
@@ -198,28 +256,6 @@ h5 {
 
 .btn {
     margin-left: $base * 11;
-}
-
-.btn-link {
-    @include quicksand;
-
-    font-size: $fs-sm;
-    font-weight: $fw-bold;
-    margin: 0;
-    padding: $base * 3 $base * 4;
-    text-decoration: none;
-    background-color: none;
-    border: 0;
-    border-radius: 2px;
-    transition: $transition;
-
-    &--primary {
-        color: #3A79FF;
-        background-color: #D2E1FF;
-        &:hover {
-            background-color: darken(#D2E1FF, 5%);
-        }
-    }
 }
 // === / HEADER ===
 
@@ -325,20 +361,131 @@ h5 {
 // === PLAN ===
 .section-plan {
     background-color: #F5F8FF;
+    color: #3D4F9F;
+
+    .wrapper-inner {
+        display: flex;
+    }
+
+    .plan {
+        &-content {
+            width: 50%;
+        }
+
+        &-img {
+            width: 50%;
+            max-height: 436px;
+        }
+
+        &__intro {
+            text-transform: uppercase;
+            margin-bottom: $base * 4;
+        }
+    
+        &__title {
+            margin-bottom: $base * 7;
+            font-weight: $fw-light;
+                span {
+                    font-weight: $fw-medium;
+                }
+        }
+    
+        &__text {
+            opacity: 0.5;
+            line-height: 2;
+            margin-bottom: $base * 12;
+        }
+    }
 }
 // === / PLAN ===
 
 // === FEATURES ===
+.section-features {
+    background: url(../images/clouds.svg) no-repeat 50% 50% ;
+}
 
+.features__intro, .features__title {
+    color: #3D4F9F;
+}
+
+.features__title {
+    font-weight: $fw-medium;
+    margin-bottom: $base * 23;
+}
+
+.features__list {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0 0 $base*25 0;
+    padding: 0;
+
+    &-item {
+        position: relative;
+        flex-basis: 16%;
+
+        &-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: $base * 17;
+            height: $base * 17;
+            border-radius: 100%;
+            background-color: #F1F5FF;
+            margin-bottom: $base * 8;
+        }
+
+        &-title {
+             font-weight: $fw-bold;
+             font-size: $fs-md;
+             color: #4074F8;
+             margin-bottom: $base * 6;
+        }
+
+        &-text  {
+            font-size: $fs-sm;
+            color: #ADB3CB;
+            line-height: 2;
+        }
+    }
+}
 // === / FEATURES ===
 
 // === STATS ===
 .section-stats {
+    display: flex;
     background-color: #E9EFFF;
-    
-    .wrapper-inner {
-        padding-top: $padding-vertical-sm;
-        padding-bottom: $padding-vertical-sm;
+
+    &__left,
+    &__right {
+        flex-basis: 50%;
+        padding: $base*16 $base*22;
+    }
+
+    &__left {
+        color: #FFF; 
+        background-color: #5E80FF;
+        text-align: right;
+    }
+
+    &__right {
+        color: #5E80FF;
+    }
+
+    &__icon {
+        margin-bottom: $base * 7;
+    }
+
+    &__num {
+        font-size: $fs-xl;
+        margin-bottom: $base * 7;
+    }
+
+    &__text {
+        @include quicksand();
+
+        font-size: $fs-lg;
+        font-weight: $fw-medium;
     }
 }
 // === / STATS ===
